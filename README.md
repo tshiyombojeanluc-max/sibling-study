@@ -8,10 +8,11 @@ self-test. Live dashboard: https://claude.ai/code/artifact/8f0914ea-e048-4ee7-a1
 1. **During the week** — add each topic on the [dashboard](https://claude.ai/code/artifact/8f0914ea-e048-4ee7-a140-3ed6e31c4eef)
    as teachers send it home. It's saved straight to ClickUp as a task in that subject's list
    (see below) — no file editing needed.
-2. **Daily, ~6pm SAST** — a scheduled cloud agent checks ClickUp for any topic still "to do",
-   drafts study notes for it into `weeks/<week>/notes/<topic-slug>.md`, marks the task "complete"
-   in ClickUp, pushes the notes to this repo, and emails tshiyombojeanluc@gmail.com the full text
-   of each new note (so it can be copied/printed straight from the email).
+2. **Every hour** (cloud routines can't run more often than that) — a scheduled agent checks
+   ClickUp for any topic still "to do", drafts study notes for it into
+   `weeks/<week>/notes/<topic-slug>.md`, marks the task "complete" in ClickUp, pushes the notes
+   to this repo, and emails tshiyombojeanluc@gmail.com the full text of each new note (so it can
+   be copied/printed straight from the email). Most hourly runs find nothing new and exit quietly.
 3. **Saturday, 2pm SAST** — a second scheduled agent queries that week's topics from ClickUp,
    writes `weeks/<week>/test.md` (10-15 mixed-difficulty questions) and `answer-key.md`, pushes
    both, and emails a summary + repo link.
